@@ -253,7 +253,6 @@ ShellAppMain (
         return 1;
       }
     }
-
 //    else if (StriCmp(argv[1], L"DEBUG") == 0) {
 //      static UINTN HandleCount=0;
 //      static EFI_HANDLE *HandleBuffer = NULL;
@@ -276,6 +275,10 @@ ShellAppMain (
       Usage();
       return 0;
     }
+  }
+  else {
+    Usage();
+    return 0;
   }
   return 0;
 }
