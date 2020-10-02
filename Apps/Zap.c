@@ -111,7 +111,7 @@ ZapGpts (
 
 EFI_STATUS NvmeZap (CHAR16 *USER_SN, UINTN Length)
 {
-  INT16 i=0;
+  INT64 i=0;
   INT16 NVME_Count=0;
   INT16 NVME_SN_MATCHED=0;
   EFI_STATUS Status;

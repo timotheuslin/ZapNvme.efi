@@ -1,16 +1,16 @@
 #include <ZapNvme.h>
 
 // Note: not thread-safe yet.
-INT16 BlkIo_Iterator(INT16 index, EFI_HANDLE *Handle, EFI_BLOCK_IO_PROTOCOL **BlkIo)
+INT64 BlkIo_Iterator(INT64 index, EFI_HANDLE *Handle, EFI_BLOCK_IO_PROTOCOL **BlkIo)
 {
-  static INT16 HandleCount=0;
+  static INT64 HandleCount=0;
   static EFI_HANDLE *HandleBuffer = NULL;
   EFI_STATUS Status;
 
   if (index == 0) {
     SafeFreePool((void**)&HandleBuffer);
     HandleCount = 0;
-    Status = gBS->LocateHandleBuffer(ByProtocol, &gEfiBlockIoProtocolGuid, NULL, (UINTN*) &HandleCount, &HandleBuffer);
+    Status = gBS->LocateHandleBuffer(ByProtocol, &gEfiBlockIoProtocolGuid, NULL, &HandleCount, &HandleBuffer);
     if (EFI_ERROR(Status)) {
       Print(L"Error when locating BLOCK IO: %r\n", Status);
       return BlkIo_Error;
@@ -46,9 +46,9 @@ INT16 BlkIo_Iterator(INT16 index, EFI_HANDLE *Handle, EFI_BLOCK_IO_PROTOCOL **Bl
 
 
 // Note: not thread-safe yet.
-INT16 NVME_Iterator(INT16 index, EFI_BLOCK_IO_PROTOCOL **BlkIo, CHAR16 *Desc_Buffer, INT16 Desc_Max)
+INT64 NVME_Iterator(INT64 index, EFI_BLOCK_IO_PROTOCOL **BlkIo, CHAR16 *Desc_Buffer, INT16 Desc_Max)
 {
-  INT16 i=0;
+  INT64 i=0;
 
   for (i=index;;i++) {
     EFI_HANDLE Handle;

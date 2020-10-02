@@ -14,12 +14,13 @@ SaveGpts (
   EFI_STATUS Status = 0;
   UINT64 nGptSectorBytes0;
   UINT64 nGptSectorBytes1;
-  CHAR16 PrimaryPartitionTableFn[1024] = L"";
-  CHAR16 SecondryPartitionTableFn[1024] = L"";
+  CHAR16 PrimaryPartitionTableFn[1024];
+  CHAR16 SecondryPartitionTableFn[1024];
   SHELL_FILE_HANDLE DestHandleP = NULL;
   SHELL_FILE_HANDLE DestHandleS = NULL;
 
 
+  PrimaryPartitionTableFn[0] = SecondryPartitionTableFn[0] = L'\0';
   // where is sprintf() ?!
   StrCpyS(PrimaryPartitionTableFn, sizeof(PrimaryPartitionTableFn)/sizeof(CHAR16)- 1, L"GPT-1.");
   StrCatS(PrimaryPartitionTableFn, sizeof(PrimaryPartitionTableFn)/sizeof(CHAR16)- 1, Sn);
@@ -95,8 +96,8 @@ SaveGpts (
 
 EFI_STATUS NvmeGptSave (CHAR16 *USER_SN, UINTN Length)
 {
-  INT16 i=0;
-  INT16 NVME_Count=0;
+  INT64 i=0;
+  UINT16 NVME_Count=0;
   INT16 NVME_SN_MATCHED=0;
   EFI_STATUS Status;
 

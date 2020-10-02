@@ -1,9 +1,9 @@
 
 #include <ZapNvme.h>
 
-INT16 NvmeInfo(VOID)
+INT64 NvmeInfo(VOID)
 {
-  INT16 NVME_Count=0, i=0;
+  INT64 NVME_Count=0, i=0;
 
   Print(L"NVME Storage\n");
   for (i=0; ; i++) {

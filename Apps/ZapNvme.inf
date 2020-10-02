@@ -13,7 +13,6 @@
   Lib.c
   Zap.c
   Main.c
-  memset.c | MSFT
   HexDump.c
   SaveGpt.c
   NvmeDump.c
@@ -49,6 +48,3 @@
   #BUGBUG UefiBootManagerLib
   HandleParsingLib  #BUGBUG
   ShellCommandLib   #BUGBUG
-
-[BuildOptions]
-  MSFT:*_*_*_CC_FLAGS = /GL-

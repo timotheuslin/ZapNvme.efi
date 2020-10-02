@@ -53,4 +53,4 @@ A UEFI shell utility that zaps an NVME SSD's GUID Partition Tables (GPT)<br>
 
 
 ## Known limitations:
-1. Only Linux build is tested. Windows and Xcode are not covered.
+1. Only Linux and Windows (VS2017) builds are tested. Xcode build is not covered.

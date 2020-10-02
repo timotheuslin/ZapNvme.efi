@@ -103,14 +103,14 @@ ZapGpts(
 );
 
 EFI_STATUS BlockIoProtocolHandles(EFI_HANDLE **HandleBuffer, UINTN *HandleCount);
-INT16 NvmeInfo(VOID);
+INT64 NvmeInfo(VOID);
 EFI_STATUS NvmeZap (CHAR16 *USER_SN, UINTN Length);
 
 #define BlkIo_Terminate -1
 #define BlkIo_Continue -2
 #define BlkIo_Error -3
-INT16 BlkIo_Iterator(INT16 index, EFI_HANDLE *Handle, EFI_BLOCK_IO_PROTOCOL **BlkIo);
-INT16 NVME_Iterator(INT16 index, EFI_BLOCK_IO_PROTOCOL **BlkIo, CHAR16 *Desc_Buffer, INT16 Desc_Max);
+INT64 BlkIo_Iterator(INT64 index, EFI_HANDLE *Handle, EFI_BLOCK_IO_PROTOCOL **BlkIo);
+INT64 NVME_Iterator(INT64 index, EFI_BLOCK_IO_PROTOCOL **BlkIo, CHAR16 *Desc_Buffer, INT16 Desc_Max);
 CHAR16 *DescToMnSn(CHAR16 *Desc, CHAR16 **Sn);
 EFI_STATUS NvmeGptSave (CHAR16 *USER_SN, UINTN Length);
 EFI_STATUS NvmeDump (CHAR16 *USER_SN, UINTN Length, EFI_LBA Start_Lba, UINT64 Lba_Count);

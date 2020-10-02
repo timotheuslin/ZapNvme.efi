@@ -4,7 +4,7 @@
 
 EFI_STATUS NvmeDump (CHAR16 *USER_SN, UINTN Length, EFI_LBA Start_Lba, UINT64 Lba_Count)
 {
-  INT16 NVME_Count=0, i=0;
+  INT64 NVME_Count=0, i=0;
 
   Print(L"NVME Storage\n");
   for (i=0; ; i++) {
