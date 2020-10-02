@@ -11,20 +11,19 @@
 
 [Sources]
   Lib.c
-  HexDump.c
-  Main.c
-  SaveGpt.c
-  NvmeInfo.c
   Zap.c
-  BmGetNvmeDescription.c
-  ProtocolIterator.c
+  Main.c
+  HexDump.c
+  SaveGpt.c
   NvmeDump.c
+  NvmeInfo.c
+  ProtocolIterator.c
+  BmGetNvmeDescription.c
 
 [Packages]
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   ShellPkg/ShellPkg.dec
-
 
 [Protocols]
   gEfiDiskIoProtocolGuid
@@ -32,7 +31,6 @@
   gEfiDiskInfoProtocolGuid
   gEfiDevicePathProtocolGuid
   gEfiNvmExpressPassThruProtocolGuid
-
 
 [Guids]
   gEfiDiskInfoIdeInterfaceGuid
@@ -42,13 +40,12 @@
   gEfiDiskInfoAhciInterfaceGuid
   gEfiDiskInfoSdMmcInterfaceGuid
 
-
 [LibraryClasses]
   PciLib
   UefiLib
   UefiShellLib
   ShellCEntryLib
-  #UefiBootManagerLib
+  #BUGBUG UefiBootManagerLib
   HandleParsingLib  #BUGBUG
   ShellCommandLib   #BUGBUG
 

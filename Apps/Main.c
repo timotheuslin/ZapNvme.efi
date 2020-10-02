@@ -183,13 +183,16 @@ ZapNvme(CHAR16 *USER_SN)
 VOID Usage(VOID)
 {
   Print (L"Usage: \n"
-         L"   NvmeGpt [arg1 [arg2 ...]] \n"
-         L"   arg: \n"
-         L"     ZAP Serial_Number\n"
-         L"     STORE\n"
-         L"     RESTORE\n"
-         L"     INFO\n"
-         L"     HELP\n"
+         L"NvmeGpt [arg1 [arg2 .  ..]] \n"
+         L"   arg: \n"  
+         L"       ZAP Serial_Number - Wipe out the NVME SSD's GPT\n"
+//DODO         L"       STORE\  n"
+//TODO         L"       RESTORE\n"
+         L"       INFO - The basic infomation from any detected NVME SSD\n"
+         L"       HELP - This help message\n"
+         L"\n"
+         L"Open Source:\n"
+         L"   https://github.com/timotheuslin/ZapNvme.efi\n"
          );
 
 }
@@ -240,8 +243,6 @@ ShellAppMain (
       //NvmeRestore();
     }
     else if (StriCmp(argv[1], L"DUMP") == 0) {
-      //NvmeDumpHex();
-      //Nvme    DumpHex();
       if (argc > 2) {
         ShellSetPageBreakMode(TRUE);
         //BUGBUG: page-break causes system hang when 'Q' is pressed.
@@ -253,24 +254,24 @@ ShellAppMain (
         return 1;
       }
     }
-//    else if (StriCmp(argv[1], L"DEBUG") == 0) {
-//      static UINTN HandleCount=0;
-//      static EFI_HANDLE *HandleBuffer = NULL;
-//      EFI_STATUS Status;
-//      INT16 i;
-//
-//      ShellSetPageBreakMode(TRUE);
-//      Status = gBS->LocateHandleBuffer(ByProtocol, &gEfiBlockIoProtocolGuid, NULL, &HandleCount, &HandleBuffer);
-//      Print(L"Block IO, Instance Count: %d\n", HandleCount);
-//      for (i=0; i<HandleCount; i++) {
-//        CHAR16 *s;
-//        Print(L"i: %d\n", i);
-//        s = GetProtocolInformationDump(HandleBuffer[i], &gEfiBlockIoProtocolGuid, TRUE);
-//        Print (L"Handle %p: %s\n", HandleBuffer[i], s);
-//        SafeFreePool((void**)&s);
-//      }
-//      SafeFreePool((void**)&HandleBuffer);
-//    }
+//TODO    else if (StriCmp(argv[1], L"DEBUG") == 0) {
+//TODO      static UINTN HandleCount=0;
+//TODO      static EFI_HANDLE *HandleBuffer = NULL;
+//TODO      EFI_STATUS Status;
+//TODO      INT16 i;
+//TODO
+//TODO      ShellSetPageBreakMode(TRUE);
+//TODO      Status = gBS->LocateHandleBuffer(ByProtocol, &gEfiBlockIoProtocolGuid, NULL, &HandleCount, &HandleBuffer);
+//TODO      Print(L"Block IO, Instance Count: %d\n", HandleCount);
+//TODO      for (i=0; i<HandleCount; i++) {
+//TODO        CHAR16 *s;
+//TODO        Print(L"i: %d\n", i);
+//TODO        s = GetProtocolInformationDump(HandleBuffer[i], &gEfiBlockIoProtocolGuid, TRUE);
+//TODO        Print (L"Handle %p: %s\n", HandleBuffer[i], s);
+//TODO        SafeFreePool((void**)&s);
+//TODO      }
+//TODO      SafeFreePool((void**)&HandleBuffer);
+//TODO    }
     else {
       Usage();
       return 0;

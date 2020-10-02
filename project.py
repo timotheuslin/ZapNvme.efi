@@ -10,8 +10,7 @@
 
 import os
 
-DEFAULT_EDK2_TAG = 'edk2-stable201911'
-#DEFAULT_EDK2_TAG = 'UDK2018'
+DEFAULT_EDK2_TAG = 'edk2-stable202002'
 DEFAULT_UDK_DIR = os.environ.get('UDK_DIR', os.path.join(os.getcwd(), 'edk2'))
 #DEFAULT_EDK2_REPO = os.environ.get('EDK2_REPO', 'https://github.com/tianocore/edk2.git')
 
@@ -31,7 +30,8 @@ if __name__ == '__main__':
     sys.dont_write_bytecode = True      # To inhibit the creation of .pyc file
 
     PKG_DSC = 'ZapNvme.dsc'
-    IPUG_CMD = 'ipug -p {0} {1}'.format(PKG_DSC, ' '.join(sys.argv[1:]))
+    CMDX = " ".join(sys.argv[1:])
+    IPUG_CMD = f"ipug -p {PKG_DSC} {CMDX}"
     print(IPUG_CMD)
     os.environ['PYTHON_COMMAND']='python3'
     os.system(IPUG_CMD)
