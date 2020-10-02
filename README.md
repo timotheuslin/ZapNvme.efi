@@ -1,12 +1,13 @@
-ZapNvme
+ZapNvme.efi
 ===
-Wipe out an NVME-SSD's GPT tables
+A UEFI shell utility that zaps an NVME SSD's GUID Partition Tables (GPT)<br>
+**WARNING: when an SSD's GPT is wiped out, it would become non-bootable if it was an OS disk.**
 
 
 ## Prerequisites:
 1. Python 3.6+,
 2. git 2.17.0+
-3. UDK/EDK2 code tree in following tags: edk2-stable{201911, 202002}
+3. [UDK/EDK2 code tree](https://github.com/tianocore/edk2) in following tags: edk2-stable{201911, 202002}
 
 
 ## Generic prerequisites for the UDK porting:
@@ -26,20 +27,17 @@ Wipe out an NVME-SSD's GPT tables
 
 ## Code tree setup and build:
 1. git-clone edk2-stable202002
-2. git-clone this package to the root folder of the edk2-stable202002 codetree.
-3. Build this package as building a general EDK'2 package.
+2. git-clone this package to the root folder of the above git-cloned EDK2 codetree.
+3. Build this package as the way of building a general EDK2's package.
 
 
 ## Usage of ZapNvme
+0. Boot into the EFI Shell.<br>
 1. To get the NVME info including the serial number<br>
     `ZapNvme info`
-2. To clean the GPT tables<br>
+2. To wipe out the GPT. The serial number can be the first 6 characters.<br>
     `ZapNvme zap Nvme_SSD_serial_number`<br>
-    **WARNING: The specified NVME SSD's GPT tables would be wiped out !**
-
-
-## Known limitations:
-1. Only Linux build is tested. Windows and Xcode are not covered.
+    **WARNING: The specified NVME SSD's GUID Partition Tables would be wiped out !**
 
 
 ## (Optional) Build using iPug:
@@ -52,3 +50,7 @@ Wipe out an NVME-SSD's GPT tables
 7. Browse to folder **Build/ZapNvme** for the build results.
 8. Browse to folder **Build/Conf** for CONF_PATH setting files.
 9. Run `ipug {clean, cleanall}` to clean (all) the intermediate files.
+
+
+## Known limitations:
+1. Only Linux build is tested. Windows and Xcode are not covered.
