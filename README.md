@@ -1,7 +1,7 @@
 ZapNvme.efi
 ===
 A UEFI shell utility that zaps an NVME SSD's GUID Partition Tables (GPT)<br>
-**WARNING: when an SSD's GPT is wiped out, it would become non-bootable if it was an OS disk.**
+**WARNING: when an SSD's GPT is wiped out, the SSD would become non-bootable if it was an OS disk.**
 
 
 ## Prerequisites:
@@ -41,7 +41,7 @@ A UEFI shell utility that zaps an NVME SSD's GUID Partition Tables (GPT)<br>
 
 
 ## (Optional) Build using iPug:
-1. `pip3 install ipug --user`
+1. `pip3 install ipug --user --upgrade`
 2. `git-clone https://github.com/timotheuslin/ZapNvme.efi`
 3. Change-directory to folder **ZapNvme.efi**.
 4. (Optional) Edit `CODETREE` in `project.py` to specify where to place the downloaded source files of the UDK git repo or any other additional repos.
