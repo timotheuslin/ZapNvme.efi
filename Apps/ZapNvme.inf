@@ -13,6 +13,7 @@
   Lib.c
   Zap.c
   Main.c
+  memset.c | MSFT
   HexDump.c
   SaveGpt.c
   NvmeDump.c
@@ -49,3 +50,5 @@
   HandleParsingLib  #BUGBUG
   ShellCommandLib   #BUGBUG
 
+[BuildOptions]
+  MSFT:*_*_*_CC_FLAGS = /GL-

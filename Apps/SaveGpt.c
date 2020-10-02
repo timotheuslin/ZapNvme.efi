@@ -50,7 +50,7 @@ SaveGpts (
     if (!isBlockEmpty(Buffer, nGptSectorBytes0)) {
       Print(L"  Empty primary partition filled with byte: %2.2X\n", *(UINT8*)Buffer);
     }
-    else if (AsciiStrnCmp((CHAR8*)(Buffer+BlkIo->Media->BlockSize), "EFI PART", 8) != 0) {
+    else if (AsciiStrnCmp(((CHAR8*) Buffer)+BlkIo->Media->BlockSize, "EFI PART", 8) != 0) {
         Print(L"  Invalid signature \"EFI PART\" in the primary GPT header.\n", *(UINT8*)Buffer);
     }
     // TODO: CRC
@@ -72,7 +72,7 @@ SaveGpts (
     if (!isBlockEmpty(Buffer, nGptSectorBytes1)) {
       Print(L"  Empty secondary partition filled with byte: %2.2X\n", *(UINT8*)Buffer);
     }
-    else if (AsciiStrnCmp((CHAR8*)(Buffer+nGptSectorBytes1-BlkIo->Media->BlockSize), "EFI PART", 8) != 0) {
+    else if (AsciiStrnCmp(((CHAR8*) Buffer)+nGptSectorBytes1-BlkIo->Media->BlockSize, "EFI PART", 8) != 0) {
       Print(L"  Invalid signature \"EFI PART\" in the secondary GPT header.\n", *(UINT8*)Buffer);
     }
     // TODO: CRC
