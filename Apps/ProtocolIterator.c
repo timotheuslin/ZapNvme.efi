@@ -10,7 +10,7 @@ INT64 BlkIo_Iterator(INT64 index, EFI_HANDLE *Handle, EFI_BLOCK_IO_PROTOCOL **Bl
   if (index == 0) {
     SafeFreePool((void**)&HandleBuffer);
     HandleCount = 0;
-    Status = gBS->LocateHandleBuffer(ByProtocol, &gEfiBlockIoProtocolGuid, NULL, &HandleCount, &HandleBuffer);
+    Status = gBS->LocateHandleBuffer(ByProtocol, &gEfiBlockIoProtocolGuid, NULL, (UINTN *)&HandleCount, &HandleBuffer);
     if (EFI_ERROR(Status)) {
       Print(L"Error when locating BLOCK IO: %r\n", Status);
       return BlkIo_Error;
