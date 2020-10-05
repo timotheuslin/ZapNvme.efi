@@ -5,9 +5,9 @@ A UEFI shell utility that zaps an NVME SSD's GUID Partition Tables (GPT)<br>
 
 
 ## Prerequisites:
-1. Python 3.6+,
-2. git 2.17.0+
-3. [UDK/EDK2 code tree](https://github.com/tianocore/edk2) in following tags: edk2-stable{201911, 202002}
+1. Python 3.7+,
+2. git 2.25.0+
+3. [UDK/EDK2 code tree](https://github.com/tianocore/edk2) in following tags: edk2-stable20{1911, 2002, 2005, 2008}
 
 
 ## Generic prerequisites for the UDK porting:
@@ -21,14 +21,15 @@ A UEFI shell utility that zaps an NVME SSD's GUID Partition Tables (GPT)<br>
     - [Xcode](https://github.com/tianocore/tianocore.github.io/wiki/Xcode)
 
 
-## Tools installation for any Debian-Based Linux:
-- `sudo apt update; sudo apt install nasm iasl build-essential uuid-dev`
+## Tools installation for any Debian-Based Linux
+- `sudo apt update`
+- `sudo apt install nasm iasl build-essential uuid-dev`
 
 
-## Code tree setup and build:
-1. git-clone edk2-stable202002
+## Code tree setup and build
+1. git-clone edk2-stable202008
 2. git-clone this package to the root folder of the above git-cloned EDK2 codetree.
-3. Build this package as the way of building a general EDK2's package.
+3. Build this package as the way of building any general EDK2's package.
 
 
 ## Usage of ZapNvme
@@ -53,4 +54,4 @@ A UEFI shell utility that zaps an NVME SSD's GUID Partition Tables (GPT)<br>
 
 
 ## Known limitations:
-1. Only Linux and Windows (VS2017) builds are tested. Xcode build is not covered.
+1. Only Linux(Ubuntu,Arch) and Windows(VS2017) builds are tested. Xcode build is not covered.

@@ -10,7 +10,7 @@
 
 import os
 
-DEFAULT_EDK2_TAG = 'edk2-stable202002'
+DEFAULT_EDK2_TAG = 'edk2-stable202008'
 DEFAULT_UDK_DIR = os.environ.get('UDK_DIR', os.path.join(os.getcwd(), 'edk2'))
 #DEFAULT_EDK2_REPO = os.environ.get('EDK2_REPO', 'https://github.com/tianocore/edk2.git')
 
